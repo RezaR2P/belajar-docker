@@ -6,3 +6,10 @@ Port Forwarding
 Docker memiliki kemampuan untuk melakukan port forwarding, yaitu meneruskan sebuah port yang terdapat di sistem Host nya ke dalam Docker Container
 Cara ini cocok jika kita ingin mengekspos port yang terdapat di container ke luar melalui sistem Host nya
 
+Melakukan Port Forwarding
+Untuk melakukan port forwarding, kita bisa menggunakan perintah berikut ketika membuat container nya :
+docker container create --name namacontainer --publish posthost:portcontainer image:tag
+docker container create --name contohnginx --publish 8080:80 nginx:latest
+Jika kita ingin melakukan port forwarding lebih dari satu, kita bisa tambahkan dua kali parameter --publish
+--publish juga bisa disingkat menggunakan -p
+untuk mengaksesnya coba search localhost:8080(port yg kita buat) di browser kita
