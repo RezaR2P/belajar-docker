@@ -1,0 +1,4 @@
+# menghiraukan semua file yg berada di folder temp
+text/temp
+# menghiraukan semua file yang berektensi log di folder text
+text/*.log
