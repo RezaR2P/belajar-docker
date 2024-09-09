@@ -6,3 +6,10 @@ Label Instruction Format
 Berikut adalah format instruksi LABEL
 LABEL <key>=<value>
 LABEL <key1>=<value1> <key2>=<value2> …
+
+# script nya
+docker build -t chelixx/label label
+docker image inspect chelixx/label
+docker container create --name chelixxlabel chelixx/label
+docker container start chelixxlabel
+docker container logs chelixxlabel
