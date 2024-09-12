@@ -20,3 +20,5 @@ docker build -t chelixx/health health
 docker container create --name chelixxhealth -p 8080:8080 chelixx/health
 docker container start chelixxhealth
 docker container ls
+docker container inspect chelixxhealth
+docker container ls | grep unhealthy
