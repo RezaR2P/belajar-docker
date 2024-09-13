@@ -1,0 +1,38 @@
+version: '3.8'
+
+networks:
+  network_mongo:
+    name: network_mongo
+    driver: bridge
+
+services:
+  mongo-depends:
+    container_name: mongo-depends
+    image: mongo:latest
+    ports:
+      - "27020:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: reza
+      MONGO_INITDB_ROOT_PASSWORD: reza
+      MONGO_INITDB_DATABASE: admin
+    networks:
+      - network_mongo
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express:latest
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo-depends
+    restart: on-failure
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: reza 
+      ME_CONFIG_MONGODB_ADMINPASSWORD: reza
+      ME_CONFIG_MONGODB_SERVER: mongo-depends
+      # harus menambahkan basic auth agar bisa login
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    networks:
+      - network_mongo
+

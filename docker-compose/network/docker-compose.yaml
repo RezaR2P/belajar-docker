@@ -1,0 +1,19 @@
+version: '3.8'
+
+networks:
+  network_compose:
+    name: network_compose
+    driver: bridge
+
+services:
+  nginx_compose:
+    container_name: nginx_compose
+    image: nginx:latest
+    networks:
+      - network_compose
+
+  nginx2_compose:
+    container_name: nginx2_compose
+    image: nginx:latest
+    networks:
+      - network_compose

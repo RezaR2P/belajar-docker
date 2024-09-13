@@ -1,0 +1,34 @@
+version: '3.8'
+
+volumes:
+  mongovolumeshort:
+    name: mongovolumeshort
+  mongovolumelong:
+    name: mongovolumelong
+
+services:
+  mongovolumeshort:
+    container_name: mongovolumeshort
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: reza
+      MONGO_INITDB_ROOT_PASSWORD: reza
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - mongovolumeshort:/data/db
+  mongovolumelong:
+    container_name: mongovolumelong
+    image: mongo:latest
+    ports:
+      - "27019:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: reza
+      MONGO_INITDB_ROOT_PASSWORD: reza
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - type: volume
+        source: mongovolumelong
+        target: "/data/db"
+        read_only: false

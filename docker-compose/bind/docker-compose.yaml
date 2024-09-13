@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mongobindshort:
+    container_name: mongobindshort
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: reza
+      MONGO_INITDB_ROOT_PASSWORD: reza
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - "./data-mongobindshort:/data/db"
+  mongobindlong:
+    container_name: mongobindlong
+    image: mongo:latest
+    ports:
+      - "27019:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: reza
+      MONGO_INITDB_ROOT_PASSWORD: reza
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - type: bind
+        source: "./data-mongobindlong"
+        target: "/data/db"
+        read_only: false

@@ -1,0 +1,31 @@
+# mirip seperti json dan ini objeknya
+firstName: Reza
+middleName: Ramdan
+lastName: Permana
+# ini mirip seperti array
+hobi:
+  - Gaming
+  - Reading
+  - Coding
+
+  # nested object
+  alamat:
+    jalan: JL. Rancacili
+    kota: Bandung
+    negara: Indonesia
+
+# array nested object
+wallet:
+  - name: bca
+    nominal: 100000
+  - name: mandiri
+    nominal: 200000
+
+# nested array 
+buah-buahan:
+  - apel
+  - pisang
+  - jeruk-jenis:
+      - jeruk manis
+      - lemon
+      - jeruk nipis
